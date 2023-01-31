@@ -1,6 +1,6 @@
-const apiKey = b1b87e0ba28bc9398c2b6c7f4ab58176;
+const apiKey = '7a84ec1f7e90f000154659becdcca8be';
 
-// Search event & API call
+// Search form event
 $('#search-form').on('submit', function (e) {
   e.preventDefault();
 
@@ -10,4 +10,9 @@ $('#search-form').on('submit', function (e) {
     userInput +
     '&limit=5&appid=' +
     apiKey;
+
+  // Geolocation API Call
+  $.ajax({ url: queryURL }).then(function (response) {
+    console.log(response);
+  });
 });
