@@ -13,13 +13,9 @@ $('#search-form').on('submit', function (e) {
 
   // Geolocation API Call
   $.ajax({ url: queryURL }).then(function (response) {
-    console.log(response);
-
     // Get lat and long for forecast API
     const lat = response[0].lat;
     const lon = response[0].lon;
-
-    console.log(lat, lon);
 
     // Weather forecast API Call
     wForecastQueryURL =
@@ -30,7 +26,21 @@ $('#search-form').on('submit', function (e) {
       '&appid=' +
       apiKey;
     $.ajax({ url: wForecastQueryURL }).then(function (forecastResponse) {
-      console.log(forecastResponse);
+      //   console.log(forecastResponse);
+
+      const forecastList = forecastResponse.list;
+
+      // Now Forecast
+      const today = forecastList[0];
+      const todayTimeStamp = today.dt;
+      console.log(today);
+      // 5 day Forecast
+
+      for (let i = 1; i < forecastList.length; i += 8) {
+        const forecast = forecastList[i];
+
+        console.log(forecast);
+      }
     });
   });
 });
