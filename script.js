@@ -26,20 +26,34 @@ $('#search-form').on('submit', function (e) {
       '&appid=' +
       apiKey;
     $.ajax({ url: wForecastQueryURL }).then(function (forecastResponse) {
-      //   console.log(forecastResponse);
-
       const forecastList = forecastResponse.list;
 
       // Now Forecast
       const today = forecastList[0];
       const todayTimeStamp = today.dt;
-      console.log(today);
+
+      // API responses for today weather
+      const todayDate = moment.unix(forecastList[0].dt).format('MM/DD/YYYY');
+      const todayTemp = forecastList[0].main.temp;
+      const todayWind = forecastList[0].wind.speed;
+      const todayHumidity = forecastList[0].main.humidity;
+
+      // Render Today API responses in HTML Container
+      $('#today-weather').append(
+        $(`<div id="now-forecast">
+        <h2>${userInput} <span>${todayDate}</span></h2>
+     <p>Temp: ${todayTemp} °C</p>
+     <p>Wind: ${todayWind} KPH</p>
+     <p>Humidity: ${todayHumidity} %</p>
+             </div> `)
+      );
+
       // 5 day Forecast
 
       for (let i = 1; i < forecastList.length; i += 8) {
         const forecast = forecastList[i];
 
-        console.log(forecast);
+        // Put 5 day forecast in HTML container
       }
     });
   });
