@@ -33,10 +33,10 @@ $('#search-form').on('submit', function (e) {
       const todayTimeStamp = today.dt;
 
       // API responses for today weather
-      const todayDate = moment.unix(forecastList[0].dt).format('MM/DD/YYYY');
-      const todayTemp = forecastList[0].main.temp;
-      const todayWind = forecastList[0].wind.speed;
-      const todayHumidity = forecastList[0].main.humidity;
+      const todayDate = moment.unix(todayTimeStamp).format('MM/DD/YYYY');
+      const todayTemp = today.main.temp;
+      const todayWind = today.wind.speed;
+      const todayHumidity = today.main.humidity;
 
       // Render Today API responses in HTML Container
       $('#today-weather').append(
@@ -52,6 +52,15 @@ $('#search-form').on('submit', function (e) {
 
       for (let i = 1; i < forecastList.length; i += 8) {
         const forecast = forecastList[i];
+        const forecastTimeStamp = forecast.dt;
+        console.log(forecastList[i]);
+
+        const forecastDates = moment
+          .unix(forecastTimeStamp)
+          .format('MM/DD/YYYY');
+        const forecastTemp = forecast.main.temp;
+        const forecastWind = forecast.wind.speed;
+        const forecastHumidity = forecast.main.humidity;
 
         // Put 5 day forecast in HTML container
       }
