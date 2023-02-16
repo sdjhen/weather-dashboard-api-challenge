@@ -53,7 +53,7 @@ $('#search-form').on('submit', function (e) {
       for (let i = 1; i < forecastList.length; i += 8) {
         const forecast = forecastList[i];
         const forecastTimeStamp = forecast.dt;
-        console.log(forecastList[i]);
+        // console.log(forecastList[i]);
 
         const forecastDates = moment
           .unix(forecastTimeStamp)
@@ -63,6 +63,16 @@ $('#search-form').on('submit', function (e) {
         const forecastHumidity = forecast.main.humidity;
 
         // Put 5 day forecast in HTML container
+        $('#card-container').append(
+          $(`<div class="card mt-2">
+          <div class="card-body">
+            <h4 class="card-title">${forecastDates}</h4>
+            <p class="card-text">Temp: ${forecastTemp} °C</p>
+            <p class="card-text">Wind: ${forecastWind} KPH</p>
+            <p class="card-text">Humidity: ${forecastHumidity}%</p>
+             </div>
+        </div>`)
+        );
       }
     });
   });

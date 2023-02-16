@@ -7,3 +7,17 @@ body {
  background: #f4f4f4;
 }
 
+#card-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+
+
+
+
+
+
