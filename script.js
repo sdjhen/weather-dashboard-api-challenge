@@ -4,6 +4,9 @@ const apiKey = '7a84ec1f7e90f000154659becdcca8be';
 $('#search-form').on('submit', function (e) {
   e.preventDefault();
 
+  // Reveal H3 5 day forecast
+  $('.to-show').show();
+
   const userInput = $('#search-input').val();
   const queryURL =
     'http://api.openweathermap.org/geo/1.0/direct?q=' +
@@ -62,11 +65,18 @@ $('#search-form').on('submit', function (e) {
         const forecastWind = forecast.wind.speed;
         const forecastHumidity = forecast.main.humidity;
 
+        // Add weather icon to HTML
+
+        const iconCode = forecast.weather[0].icon;
+        const iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+
         // Put 5 day forecast in HTML container
         $('#card-container').append(
-          $(`<div class="card mt-2">
+          $(`
+          <div class="card mt-2">
           <div class="card-body">
             <h4 class="card-title">${forecastDates}</h4>
+            <img src="  ${iconURL} "></img> 
             <p class="card-text">Temp: ${forecastTemp} °C</p>
             <p class="card-text">Wind: ${forecastWind} KPH</p>
             <p class="card-text">Humidity: ${forecastHumidity}%</p>

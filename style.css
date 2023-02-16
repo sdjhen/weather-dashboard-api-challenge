@@ -15,7 +15,9 @@ body {
     margin: auto;
 }
 
-
+.to-show {
+    display: none;
+}
 
 
 
