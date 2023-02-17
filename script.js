@@ -17,6 +17,8 @@ $('#search-form').on('submit', function (e) {
   // Put search value on history list
   // prepend value to container
 
+  // Add history to local storage
+
   // Geolocation API Call
   $.ajax({ url: queryURL }).then(function (response) {
     // Get lat and long for forecast API

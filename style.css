@@ -7,6 +7,23 @@ body {
  background: #f4f4f4;
 }
 
+header {
+    background:#12343b ;
+}
+
+.to-show {
+    display: none;
+}
+
+#today-weather {
+    border: 2px solid #000;
+    display: none;
+}
+
+#today-weather h3 p {
+    padding-left: 10px;
+}
+
 #card-container {
     display: flex;
     width: 100%;
@@ -15,9 +32,16 @@ body {
     margin: auto;
 }
 
-.to-show {
-    display: none;
+.card {
+    margin: 10px;
+    background: #12343b;
+    color: #fff;
 }
+
+.icon {
+    display: inline;
+}
+
 
 
 
