@@ -14,6 +14,9 @@ $('#search-form').on('submit', function (e) {
     '&limit=5&appid=' +
     apiKey;
 
+  // Put search value on history list
+  // prepend value to container
+
   // Geolocation API Call
   $.ajax({ url: queryURL }).then(function (response) {
     // Get lat and long for forecast API
@@ -40,11 +43,14 @@ $('#search-form').on('submit', function (e) {
       const todayTemp = today.main.temp;
       const todayWind = today.wind.speed;
       const todayHumidity = today.main.humidity;
+      const iconCode = today.weather[0].icon;
+      const iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
 
       // Render Today API responses in HTML Container
       $('#today-weather').append(
         $(`<div id="now-forecast">
         <h2>${userInput} <span>${todayDate}</span></h2>
+        <img src="  ${iconURL} "></img> 
      <p>Temp: ${todayTemp} °C</p>
      <p>Wind: ${todayWind} KPH</p>
      <p>Humidity: ${todayHumidity} %</p>
