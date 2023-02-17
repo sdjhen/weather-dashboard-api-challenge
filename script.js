@@ -1,10 +1,14 @@
+// Populate history from local storage
+const history = JSON.parse(localStorage.getItem('history')) || []; // if empty
+
+// Openweather API Key
 const apiKey = '7a84ec1f7e90f000154659becdcca8be';
 
 // Search form event
 $('#search-form').on('submit', function (e) {
   e.preventDefault();
 
-  // Reveal H3 5 day forecast
+  // Reveal Today & 5 day forecast
   $('.to-show').show();
 
   const userInput = $('#search-input').val();
@@ -18,6 +22,8 @@ $('#search-form').on('submit', function (e) {
   // prepend value to container
 
   // Add history to local storage
+  history.push(userInput);
+  localStorage.setItem('history', JSON.stringify(history));
 
   // Geolocation API Call
   $.ajax({ url: queryURL }).then(function (response) {
@@ -64,8 +70,6 @@ $('#search-form').on('submit', function (e) {
       for (let i = 1; i < forecastList.length; i += 8) {
         const forecast = forecastList[i];
         const forecastTimeStamp = forecast.dt;
-        // console.log(forecastList[i]);
-
         const forecastDates = moment
           .unix(forecastTimeStamp)
           .format('MM/DD/YYYY');

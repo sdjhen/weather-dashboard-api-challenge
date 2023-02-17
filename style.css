@@ -7,8 +7,8 @@ body {
  background: #f4f4f4;
 }
 
-header {
-    background:#12343b ;
+.custom-bg {
+    background:#39a0ca !important;
 }
 
 .to-show {
@@ -38,11 +38,10 @@ header {
     color: #fff;
 }
 
-.icon {
-    display: inline;
+button {
+    margin: 10px;
+    width: 100%;
 }
-
-
 
 
 
