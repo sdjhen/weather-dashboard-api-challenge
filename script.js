@@ -13,7 +13,7 @@ $('#search-form').on('submit', function (e) {
 
   const userInput = $('#search-input').val();
   const queryURL =
-    'http://api.openweathermap.org/geo/1.0/direct?q=' +
+    'https://api.openweathermap.org/geo/1.0/direct?q=' +
     userInput +
     '&limit=5&appid=' +
     apiKey;
@@ -46,7 +46,7 @@ $('#search-form').on('submit', function (e) {
 
     // Weather forecast API Call
     wForecastQueryURL =
-      'http://api.openweathermap.org/data/2.5/forecast?units=metric&lat=' +
+      'https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=' +
       lat +
       '&lon=' +
       lon +
@@ -65,7 +65,7 @@ $('#search-form').on('submit', function (e) {
       const todayWind = today.wind.speed;
       const todayHumidity = today.main.humidity;
       const iconCode = today.weather[0].icon;
-      const iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+      const iconURL = 'https://openweathermap.org/img/w/' + iconCode + '.png';
 
       // Render Today API responses in HTML Container
       $('#today-weather').append(
