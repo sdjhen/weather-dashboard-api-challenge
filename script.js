@@ -19,7 +19,20 @@ $('#search-form').on('submit', function (e) {
     apiKey;
 
   // Put search value on history list
+  const populateHistory = $('#history');
+
   // prepend value to container
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key[i];
+
+    if (key === `${userInput}`) {
+      continue;
+    }
+
+    const searchHistory = $('<button>').html(`${userInput}`);
+
+    populateHistory.prepend(searchHistory);
+  }
 
   // Add history to local storage
   history.push(userInput);
