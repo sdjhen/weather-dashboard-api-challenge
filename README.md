@@ -4,7 +4,7 @@ Weather Dashboard API Module 8 Bootcamp Challenge
 
 ## Description
 
-This application is utilises the OpenWeather API to give the user a current and five
+This application utilises the OpenWeather API to give the user a current and five
 day forecast for any city of their choosing, with the API data appended to the UI for their convienence. A user can input a location of their choosing and the application will respond by retrieving the response from the API and saving the history of searches to local storage.
 
 ## Installation
